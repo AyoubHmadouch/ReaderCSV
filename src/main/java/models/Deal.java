@@ -2,7 +2,7 @@ package models;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class Trader {
+public class Deal {
     @CsvBindByName(column = "TradeId")
     private int idTrade;
     @CsvBindByName(column = "Operation")
@@ -10,11 +10,12 @@ public class Trader {
     @CsvBindByName(column = "ProductId")
     private int productId;
     @CsvBindByName(column = "Nomminal")
-    private double nominal;
+    private int nominal;
     @CsvBindByName(column = "Price")
     private double price;
-    public Trader(){}
-    public Trader(int id, String operation, int productId, double nominal, double price) {
+
+    public Deal(){}
+    public Deal(int id, String operation, int productId, int nominal, double price) {
         this.idTrade = id;
         this.operation = operation;
         this.productId = productId;
@@ -34,7 +35,7 @@ public class Trader {
         return productId;
     }
 
-    public double getNominal() {
+    public int getNominal() {
         return nominal;
     }
 
@@ -54,7 +55,7 @@ public class Trader {
         this.productId = productId;
     }
 
-    public void setNominal(double nominal) {
+    public void setNominal(int nominal) {
         this.nominal = nominal;
     }
 
@@ -64,7 +65,7 @@ public class Trader {
 
     @Override
     public String toString() {
-        return "Trader{" +
+        return "Deal{" +
                 "idTrader=" + idTrade +
                 ", operation=" + operation +
                 ", productId=" + productId +

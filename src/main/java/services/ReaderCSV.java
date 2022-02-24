@@ -1,7 +1,7 @@
 package services;
 
 import com.opencsv.bean.CsvToBeanBuilder;
-import models.Trader;
+import models.Deal;
 
 import java.io.*;
 import java.util.List;
@@ -18,11 +18,11 @@ public class ReaderCSV implements Reader{
         return new File(completeFileName);
     }
     @Override
-    public List<Object> readFile(File file) throws Exception {
+    public List<Deal> readFile(File file) throws Exception {
 
-        return new CsvToBeanBuilder<>(new FileReader(file))
-                .withType(Trader.class)
-                .build()
-                .parse();
+        return new CsvToBeanBuilder<Deal>(new FileReader(file))
+                .withType(Deal.class).
+                build().
+                parse();
     }
 }
